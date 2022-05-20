@@ -21,7 +21,8 @@ export default new Vuex.Store({
     },
     modules: { carrinho, parametros }
     //Os getters, mutations e actions serão importados para dentro do store do mesmo jeito que era antes
-    //Mas o state ficará diferente, pois ele reconhecerá os modulos como objetos assim:
+    //ATENÇÃO: isso pode gerar conflitos de nome, para isso usamos namespaces
+    //O state ficará diferente, pois ele reconhecerá os modulos como objetos assim:
     // state: {
     //     carrinho: {
     //         produtos: []

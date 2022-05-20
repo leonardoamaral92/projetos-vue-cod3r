@@ -31,7 +31,8 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         //Outra forma de acessar o getters (dentro de propriedades computadas)
-        ...mapGetters({
+        //Passando o namespace
+        ...mapGetters('carrinho', {
                 total: 'valorTotal'
         }),
         // total() {

@@ -33,6 +33,7 @@ export default {
         //É como se estivéssemos importando o método 'adicionarProduto'
         //...mapMutations(['adicionarProduto']),
         //Trabalhando com Actions muito semelhante a mutations
+        //Não precisa passar namespace caso a action seja declarada direto na raiz
         ...mapActions(['adicionarProduto']),
         adicionar() {
             const produto = {
