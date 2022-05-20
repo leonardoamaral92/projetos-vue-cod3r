@@ -5,7 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        produtos: []
+        produtos: [],
+        quantidade: 1,
+        preco: 5.99
     },
     getters: {
         //Centralizamos a lógica que existia nos componentes Resumo e Carrinho aqui
@@ -20,6 +22,12 @@ export default new Vuex.Store({
         //Em cada mutation só podemos passar 1 parâmetro adicional (produto)
         adicionarProduto(state, produto){
             state.produtos.push(produto)
+        },
+        setQuantidade(state, payload){
+            state.quantidade = payload
+        },
+        setPreco(state, payload){
+            state.preco = payload
         }
     },
     //Action é usada para inserir regras de negócios podendo acessar várias mutations

@@ -15,10 +15,24 @@
 
 <script>
 export default {
-    data() {
-        return {
-            quantidade: 0,
-            preco: 0
+    computed: {
+        //Geralmente é um método somente de get, mas nesse caso será 
+        //uma propriedade com get e set
+        quantidade: {
+            get() {
+                return this.$store.state.quantidade
+            },
+            set (valor){
+                this.$store.commit('setQuantidade', valor)
+            }
+        },
+        preco: {
+            get() {
+                return this.$store.state.preco
+            },
+            set (valor){
+                this.$store.commit('setPreco', valor)
+            }
         }
     }
 }
