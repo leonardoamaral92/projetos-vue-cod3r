@@ -1,42 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import carrinho from './modules/carrinho'
+import parametros from './modules/parametros'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state: {
-        produtos: [],
-        quantidade: 1,
-        preco: 5.99
-    },
-    getters: {
-        //Centralizamos a lógica que existia nos componentes Resumo e Carrinho aqui
-        //Desta forma só precisamos alterar em um lugar algo que pode ser usado em vários lugares        
-        valorTotal(state){
-            return state.produtos.map(p => p.quantidade * p.preco)
-                .reduce((total, atual) => total + atual, 0)
-        }
-    },
-    //Tem como objetivo alterar o estado central (state)
-    mutations: { //"setters"
-        //Em cada mutation só podemos passar 1 parâmetro adicional (produto)
-        adicionarProduto(state, produto){
-            state.produtos.push(produto)
-        },
-        setQuantidade(state, payload){
-            state.quantidade = payload
-        },
-        setPreco(state, payload){
-            state.preco = payload
-        }
-    },
-    //Action é usada para inserir regras de negócios podendo acessar várias mutations
-    actions: {
-        adicionarProduto(context, payload){
-            //Simulação de uma chamada assíncrona 1s de resposta
-            setTimeout(() => {
-                context.commit('adicionarProduto', payload)
-            }, 1000)
-        }
-    }
+    modules: { carrinho, parametros }
+    //Os getters, mutations e actions serão importados para dentro do store do mesmo jeito que era antes
+    //Mas o state ficará diferente, pois ele reconhecerá os modulos como objetos assim:
+    // state: {
+    //     carrinho: {
+    //         produtos: []
+    //     },
+    //     parametros: {
+    //         quantidade: 0,
+    //         preco: 0
+    //     }
+    // },        
 })

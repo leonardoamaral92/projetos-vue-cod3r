@@ -20,7 +20,7 @@ export default {
         //uma propriedade com get e set
         quantidade: {
             get() {
-                return this.$store.state.quantidade
+                return this.$store.state.parametros.quantidade
             },
             set (valor){
                 this.$store.commit('setQuantidade', valor)
@@ -28,7 +28,7 @@ export default {
         },
         preco: {
             get() {
-                return this.$store.state.preco
+                return this.$store.state.parametros.preco
             },
             set (valor){
                 this.$store.commit('setPreco', valor)
