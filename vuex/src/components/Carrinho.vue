@@ -26,8 +26,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     computed: {
+        //Outra forma de acessar o getters (dentro de propriedades computadas)
+        ...mapGetters({
+                total: 'valorTotal'
+        }),
         total() {
             return this.$store.getters.valorTotal
         },

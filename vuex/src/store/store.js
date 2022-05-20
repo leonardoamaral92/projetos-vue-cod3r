@@ -14,5 +14,11 @@ export default new Vuex.Store({
             return state.produtos.map(p => p.quantidade * p.preco)
                 .reduce((total, atual) => total + atual, 0)
         }
+    },
+    mutations: { //"setters"
+        //Em cada mutation só podemos passar 1 parâmetro adicional (produto)
+        adicionarProduto(state, produto){
+            state.produtos.push(produto)
+        }
     }
 })

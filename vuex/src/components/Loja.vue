@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 
 export default {
     data() {
@@ -21,6 +22,10 @@ export default {
         }
     },
     methods: {
+        //Outra forma de acessar o setters (dentro de methods)
+        //Usamos operador spread(...) para que o resultado gere métodos
+        //É como se estivéssemos importando o método 'adicionarProduto'
+        ...mapMutations(['adicionarProduto']),
         adicionar() {
             const produto = {
                 id: this.sequencia,
@@ -30,7 +35,14 @@ export default {
             }
             this.sequencia++
             
-            this.$store.state.produtos.push(produto)
+            //Alterando diretamente o objeto do store
+            //this.$store.state.produtos.push(produto)
+
+            //Acionando diretamente o mutation
+            //this.$store.commit('adicionarProduto', produto);
+
+            //Acessando depois do mapMutations
+            this.adicionarProduto(produto);
         }
     }
 }
