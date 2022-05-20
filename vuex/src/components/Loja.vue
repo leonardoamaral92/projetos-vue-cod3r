@@ -50,10 +50,15 @@ export default {
             //this.$store.commit('adicionarProduto', produto);
 
             //Acessando depois do mapMutations ou mapActions
-            //this.adicionarProduto(produto);
+            this.adicionarProduto(produto)
 
             //Nâo precisa usar o mapActions
-            this.$store.dispatch('adicionarProduto', produto)
+            //this.$store.dispatch('adicionarProduto', produto)
+
+            // eslint-disable-next-line no-console
+            console.log(this.$store.getters.getNome)
+            // eslint-disable-next-line no-console
+            console.log(this.$store.getters.getNomeCompleto)
         }
     }
 }
