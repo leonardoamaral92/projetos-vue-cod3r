@@ -5889,6 +5889,11 @@
   "resolved" "https://registry.npmjs.org/vuetify/-/vuetify-2.6.6.tgz"
   "version" "2.6.6"
 
+"vuex@^2.1.1":
+  "integrity" "sha1-eEY+5F+uSHHF0FF3tOjO3Z4svMw="
+  "resolved" "https://registry.npmjs.org/vuex/-/vuex-2.1.1.tgz"
+  "version" "2.1.1"
+
 "watchpack@^2.3.1":
   "integrity" "sha512-x0t0JuydIo8qCNctdDrn1OzH/qDzk2+rdCOC3YzumZ42fiMqmQ7T3xQurykYMhYfHaPHTp4ZxAx2NfUo1K6QaA=="
   "resolved" "https://registry.npmjs.org/watchpack/-/watchpack-2.3.1.tgz"
