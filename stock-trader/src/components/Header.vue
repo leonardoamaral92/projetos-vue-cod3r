@@ -20,7 +20,7 @@
                 </template>
                 <v-list>
                     <v-list-item>
-                        <v-list-item-title>Salvar Dados</v-list-item-title>
+                        <v-list-item-title @click="saveData">Salvar Dados</v-list-item-title>
                     </v-list-item>
                     <v-list-item>
                         <v-list-item-title>Carregar Dados</v-list-item-title>
@@ -50,6 +50,10 @@ export default {
         ...mapActions(['randomizeStocks']),
         endDay(){
             this.randomizeStocks()
+        },
+        saveData(){
+            const { funds, stockPortfolio, stocks } = this.$store.getters
+            this.$http.put('data.json', { funds, stockPortfolio, stocks })
         }
     }
 }
