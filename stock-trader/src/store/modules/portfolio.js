@@ -22,12 +22,16 @@ export default {
             else
                 state.stocks.splice(state.stocks.indexOf(record), 1)
             state.funds += stockPrice * quantity
+        },
+        setPortfolio(state, { funds, stockPortfolio }){
+            state.funds = funds
+            state.stocks = stockPortfolio ? stockPortfolio : []
         }
     },
     actions: {
         sellStock({ commit }, order) {
             commit('sellStock', order)
-        }
+        }        
     },
     getters: {
         //A lista de ações do portfólio será a mesma da lista de ações para comprar, acrescido da quantidade        
